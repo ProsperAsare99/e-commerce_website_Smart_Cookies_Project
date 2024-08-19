@@ -13,8 +13,7 @@ const UserProfile = ({ currentUser }: any) => {
           </span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-          Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim
-          id veniam aliqua proident excepteur commodo do ea.
+          We hope you enjoy all our products and Services. Patronizing us is what makes the business grow. Thank you!!.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4">
           <img
