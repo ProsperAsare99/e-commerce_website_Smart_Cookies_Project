@@ -1,33 +1,27 @@
-import logo from "./logo.webp";
-import discountImgOne from "./discountImgOne.png";
-import discountImgTwo from "./discountImgTwo.webp";
-import homeIcon from "./footerIcons/homeIcon.webp";
-import saveIcon from "./footerIcons/saveIcon.webp";
-import tagIcon from "./footerIcons/tagIcon.webp";
-import smileIcon from "./footerIcons/smileIcon.webp";
-import payment from "./payment.webp";
-import brandOne from "./brands/brandOne.webp";
-import brandTwo from "./brands/brandTwo.webp";
-import brandThree from "./brands/brandThree.webp";
-import brandFour from "./brands/brandFour.webp";
-import brandFive from "./brands/brandFive.webp";
-import brandSix from "./brands/brandSix.webp";
-import productPayment from "./productPayment.webp";
+import axios from "axios";
+export const getData = async (endpoint: string) => {
+  try {
+    const response = await fetch(endpoint, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-export {
-  logo,
-  discountImgOne,
-  discountImgTwo,
-  homeIcon,
-  saveIcon,
-  tagIcon,
-  smileIcon,
-  payment,
-  brandOne,
-  brandTwo,
-  brandThree,
-  brandFour,
-  brandFive,
-  brandSix,
-  productPayment,
+    if (!response.ok) {
+      throw new Error("Data fetching Error" + response?.statusText);
+    }
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error("Error while fetching data", error);
+    throw error;
+  }
+};
+
+export const getProducts = async () => {
+  const products = await axios.get("http://localhost:8000/products");
+  return products;
 };
